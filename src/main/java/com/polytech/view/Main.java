@@ -19,10 +19,12 @@ public class Main {
        // PostRepository postRepository = new PostRepositoryImpl();
         // PublicationService publicationService = new PublicationServiceImpl(postRepository);
 
+        System.setProperty("spring.profiles.active", "PROD");
+
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         PublicationService publicationService = applicationContext.getBean(PublicationService.class);
 
-        Post post = new Post("Bonjor");
+        Post post = new Post("Bonjour");
         publicationService.post(post);
 
         List<Post> postList = publicationService.fetchAll();

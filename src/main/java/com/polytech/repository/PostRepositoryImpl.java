@@ -1,6 +1,8 @@
 package com.polytech.repository;
 
 import com.polytech.business.Post;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -10,10 +12,12 @@ import java.util.List;
 /**
  * Created by User on 13/03/2017.
  */
+@Component
 public class PostRepositoryImpl implements PostRepository {
 
     private DataSource dataSource;
 
+    @Autowired
     public PostRepositoryImpl(DataSource dataSource){
         this.dataSource = dataSource;
     }
