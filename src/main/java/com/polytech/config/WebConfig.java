@@ -11,10 +11,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.polytech.pnet.view")
+@ComponentScan("com.polytech.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    //configure JSP view resolver
+    //configure JSP web resolver
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resolver =
