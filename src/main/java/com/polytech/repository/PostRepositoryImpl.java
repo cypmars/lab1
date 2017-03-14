@@ -14,7 +14,7 @@ public class PostRepositoryImpl implements PostRepository {
 
     private DataSource dataSource;
 
-    public PostRepositoryImpl(DataSource datasource){
+    public PostRepositoryImpl(DataSource dataSource){
         this.dataSource = dataSource;
     }
     public List<Post> findAll() {
