@@ -17,4 +17,8 @@ public class Post {
                 "content='" + content + '\'' +
                 '}';
     }
+
+    public String getContent() {
+        return content;
+    }
 }

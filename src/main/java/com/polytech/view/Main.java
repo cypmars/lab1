@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        PostRepository postRepository = new PostRepositoryImpl();
-        PublicationService publicationService = new PublicationServiceImpl(postRepository);
+       // PostRepository postRepository = new PostRepositoryImpl();
+        // PublicationService publicationService = new PublicationServiceImpl(postRepository);
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        applicationContext.getBean(PublicationService.class);
+        PublicationService publicationService = applicationContext.getBean(PublicationService.class);
 
         Post post = new Post("Bonjor");
         publicationService.post(post);
