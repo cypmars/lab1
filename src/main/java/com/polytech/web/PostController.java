@@ -25,7 +25,7 @@ public class PostController {
     public String saveMessage(Post post) {
         System.out.println("share"+post);
         publicationService.post(post);
-        return "feed";
+        return "forward:index.html";
     }
 
 
