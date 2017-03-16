@@ -19,7 +19,7 @@ import javax.sql.DataSource;
  */
 @PropertySource("classpath:/application.properties")
 @Configuration
-@ComponentScan(basePackages = "com.polytech")
+@ComponentScan(basePackages = {"com.polytech.business","com.polytech.repository"})
 public class ApplicationConfig {
 
    // @Bean

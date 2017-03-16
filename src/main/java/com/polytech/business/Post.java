@@ -5,10 +5,17 @@ package com.polytech.business;
  */
 public class Post {
 
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     private String content;
 
     public Post(String content) {
         this.content = content;
+    }
+
+    public Post() {
     }
 
     @Override
