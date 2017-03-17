@@ -25,11 +25,11 @@ public class PostController {
     public String saveMessage(Post post) {
         System.out.println("share"+post);
         publicationService.post(post);
-        return "forward:index.html";
+        return "redirect:/feed";
     }
 
 
-    @RequestMapping(value = "/share",method = RequestMethod.GET)
+    @RequestMapping(value = "/feed",method = RequestMethod.GET)
     public String showFeeds(Model model) {
         List<Post> posts = publicationService.fetchAll();
         model.addAttribute("posts", posts);
