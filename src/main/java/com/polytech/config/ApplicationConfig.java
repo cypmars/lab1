@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
@@ -15,6 +16,7 @@ import javax.sql.DataSource;
  */
 @PropertySource("classpath:/application.properties")
 @Configuration
+@EnableJpaRepositories("com.polytech.repository")
 @ComponentScan(basePackages = {"com.polytech.business","com.polytech.repository"})
 @EntityScan("com.polytech.business")
 public class ApplicationConfig {

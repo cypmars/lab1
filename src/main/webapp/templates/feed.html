@@ -6,16 +6,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Logout"/>
-</form>
-<section id="contact" class="content-section text-center">
+
+<section id="contact" class="content-section">
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
     <div class="contact-section">
         <div class="container">
-            <h2>Lâche un com</h2>
-            <p>Feel free to shout us by feeling the contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.</p>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+            <h2 class="text-center">Lâche un com</h2>
+            <p class="text-center">Feel free to shout us by feeling the contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.</p>
+            <div class="row text-center">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
                     <form  class="form-horizontal" th:action="@{/share}" method="POST">
                         <div class="form-group ">
                             <label for="exampleInputText">Your Message</label>
@@ -25,21 +27,71 @@
                     </form>
                 </div>
             </div>
-            <hr/>
-            <div class="row feed" th:each="post :${posts}">
-                <div class="col-md-2">
+            <div class="feed" th:each="post :${posts}">
+                <hr/>
+                <div class="row feed">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="media">
+                            <img class="d-flex align-self-start mr-3" width="64px" src="https://kickprod.com/images/default-picture_0.png" alt="Generic placeholder image"/>
+                            <div class="media-body">
+                                <h4 th:text="${post.getContent()}"></h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <p th:text="${post.getContent()}"></p>
+                <br/>
+                <div class="row action">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <form  class="form-horizontal" th:action="@{/sharelike}" method="POST">
+                                    <div class="input-group">
+                                        <button class="btn btn-primary" type="submit"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-10">
+                                <form  class="form-horizontal" th:action="@{/sharecom}" method="POST">
+                                    <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="submit"><i class="fa fa-comment"></i> Comment</button>
+                                </span>
+                                        <input type="text" class="form-control" placeholder="Comment here"/>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-2">
+                <div class="row comment" th:each="comment :${comments}">
+                    <hr/>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <div class="media">
+                                    <img class="d-flex align-self-start mr-3" width="64px" src="https://kickprod.com/images/default-picture_0.png" alt="Generic placeholder image"/>
+                                    <div class="media-body">
+                                        <p th:text="${comment.getContent()}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row comment">
+                    <hr/>
+                    <p ></p>
                 </div>
             </div>
         </div>
+        <br/>
     </div>
 </section>
-<hr/>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
 <style>
 
     body{
@@ -67,6 +119,10 @@
     a:hover,a:focus{
         text-decoration:none;
         color:#26a5d3;
+    }
+
+    hr{
+        background-color:#ffffff;
     }
 
     #contact{
