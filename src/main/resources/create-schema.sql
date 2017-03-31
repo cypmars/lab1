@@ -1,6 +1,11 @@
 CREATE TABLE POST(
-    ID int primary key AUTO_INCREMENT,
+    POST_ID int primary key AUTO_INCREMENT,
     CONTENT varchar(140)
+);
+
+CREATE TABLE COMMENT(
+    COMMENT_ID int primary key AUTO_INCREMENT,
+    CONTENT varchar(140),
 );
 
 create table users(

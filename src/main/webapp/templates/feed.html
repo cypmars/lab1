@@ -55,10 +55,10 @@
                             <div class="col-md-10">
                                 <form  class="form-horizontal" th:action="@{/sharecom}" method="POST">
                                     <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="submit"><i class="fa fa-comment"></i> Comment</button>
-                                </span>
-                                        <input type="text" class="form-control" placeholder="Comment here"/>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-danger" type="submit"><i class="fa fa-comment"></i> Comment</button>
+                                        </span>
+                                        <input type="text" name="content" class="form-control" placeholder="Comment here"/>
                                     </div>
                                 </form>
                             </div>
@@ -66,9 +66,9 @@
                     </div>
                 </div>
                 <div class="row comment" th:each="comment :${comments}">
-                    <hr/>
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
+                        <hr/>
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-10">
