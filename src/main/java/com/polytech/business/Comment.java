@@ -1,5 +1,7 @@
 package com.polytech.business;
 
+import org.springframework.data.annotation.Id;
+
 import javax.persistence.*;
 
 /**
