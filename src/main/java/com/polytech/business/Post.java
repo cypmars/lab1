@@ -21,8 +21,6 @@ public class Post implements java.io.Serializable{
     @Column(name="CONTENT")
     private String content;
 
-    private TreeSet<Comment> listComment = new TreeSet<Comment>();
-
     public void setContent(String content) {
         this.content = content;
     }
@@ -32,11 +30,6 @@ public class Post implements java.io.Serializable{
 
     public Post(String content) {
         this.content = content;
-    }
-
-    public Post(String content, TreeSet<Comment> listComment) {
-        this.content = content;
-        this.listComment = listComment;
     }
 
     @Override
@@ -50,12 +43,4 @@ public class Post implements java.io.Serializable{
         return content;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "POST")
-    public Set<Comment> getComments() {
-        return this.listComment;
-    }
-
-    public void setComments(Set<Comment> stockDailyRecords) {
-        this.listComment = listComment;
-    }
 }
