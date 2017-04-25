@@ -16,4 +16,10 @@ public class HomeController {
         return "forward:index.html";
     }
 
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String login(){
+        System.out.println("login");
+        return "login";
+    }
+
 }
